@@ -1,8 +1,8 @@
 var Game = function(name) {
 	this.name = name;
 	this.score = 0;
-
-	this.maxNumShots = 10;
+	//TODO Numbers of shots should be retrieved  from a constant
+	this.maxNumshots = 10;
 
 	this.players = [];
 	this.createPlayers();
