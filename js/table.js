@@ -11,10 +11,13 @@ var Table = function(size){
     this._createShips();
     this.shipCount;
     this._generateShipsCoordinates();
-    //console.log(this._getCellState(0,1));
-    //this._placeShips();
 };
 
+/**
+ *
+ *
+ * @private
+ */
 Table.prototype._generateShipsCoordinates = function(){
     for (var i = 0; i < this.ships.length; i++) {
         this._randomShipLocation(i);
@@ -48,17 +51,9 @@ Table.prototype._createShips = function(){
      */
     this.ships.push(ship1,ship2,ship3,ship4,ship5);
 
-
-    /*
-    {
-        0:{name:"Aircraft carrier", size:5, hits:0, direction:"Vertical", coordinates:[[0,0],[0,0],[0,0],[0,0],[0,0]]},
-        1:{name:"Battleship", size:4, hits:0, direction:"Vertical", coordinates:[[0,0],[0,0],[0,0],[0,0]]},
-        2:{name:"Submarine", size:3, hits:0, direction:"Vertical", coordinates:[[0,0],[0,0],[0,0]]},
-        3:{name:"Destroyer", size:3, hits:0, direction:"Vertical", coordinates:[[0,0],[0,0],[0,0]]},
-        4:{name:"Patrol boat", size:2, hits:0, direction:"Vertical", coordinates:[[0,0],[0,0]]}
-    };*/
     this.shipCount = 5;
 };
+
 Table.prototype._getCellState = function(x, y){
 
     if(this.board[x][y] == "2")
@@ -69,21 +64,13 @@ Table.prototype._getCellState = function(x, y){
         return "Unknown";
 };
 
-// Table.prototype.drawShips = function(){
-//     for (var i = 0; i < Things.length; i++) {
-//         Things[i]
-//     };
-// };
-
-// Table.prototype._generateCoord = function(){
-//     var posX = parseInt(Math.random()* this.board.length);
-//     var posY = parseInt(Math.random()* this.board.length);
-//     var coord = [];
-//     coord.push(posX);
-//     coord.push(posY);
-//     return coord;
-// };
-
+/**
+ *
+ * validShipCoordinate generates valids ship coordenates to the ships  don't
+ * crashes between them
+ * @param coord
+ * @returns {boolean}
+ */
 Table.prototype.validShipCoordinate = function(coord){
     if(coord[0] < this.board.length && coord[0] >= 0 && 
         coord[1] < this.board.length && coord[1] >= 0){
@@ -102,6 +89,11 @@ Table.prototype.validShipCoordinate = function(coord){
     return false;
 }
 
+/**
+ * this method generates a ramdom location to cretae ships
+ * @param shipIndex
+ * @private
+ */
 Table.prototype._randomShipLocation = function(shipIndex){
 
     var index = 0;
@@ -136,6 +128,10 @@ Table.prototype._randomShipLocation = function(shipIndex){
     this.displayCoordinate(coordinates);
 }
 
+/**
+ * This method generates ramdom coordinates
+ * @returns {*[]}
+ */
 Table.prototype.randomCoordinate = function(){
     do{
         var coord = [Math.floor((Math.random() * this.board.length) + 0),
@@ -154,6 +150,10 @@ Table.prototype.validShotCoordinate =  function(coord){
     return false;
 }
 
+/**
+ * this method display the coordinates generated
+ * @param coordinate
+ */
 Table.prototype.displayCoordinate = function(coordinate){
     for (var i = 0; i < coordinate.length; i++) {
         console.log(coordinate[i]);
