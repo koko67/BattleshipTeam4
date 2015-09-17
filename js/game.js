@@ -8,20 +8,21 @@ var Game = function(name) {
 	this.createPlayers();
 };
 
+/**
+ *  This method init the Battleship game
+ *  @parameters numberOfShots
+ *
+ */
 Game.prototype.start = function(){
 	console.log('Battle ship game started!');
 	console.log('Here should start the game logic');
 	console.log('TMP: Table ', this.players[0].table);
-	this.maxNumshots = prompt('insert the number of shots to play (IT SHOULD BE GREATHER THAN 20))');
-	// var numShots = 0;
-	// do {
-	// 	var pos = this.getUserShot();
-	// 	numShots++;
-	// 	//Eval shot
-	// 	this.players[0].table._field[pos] = 'O';
-	// }while(numShots<8);
+	this.maxNumshots = prompt('insert the number of shots to play (IT SHOULD BE GREATHER THAN 10))');
 };
-
+/**
+ * This method create players for more that one players
+ *
+ */
 Game.prototype.createPlayers = function(){
 	//TODO: Number of shots should be retrieved from a constant
 	var numPlayers = 1;
@@ -30,22 +31,28 @@ Game.prototype.createPlayers = function(){
 		this.players.push(player);
 	}
 };
-
+/**
+ * Show  a windows prompt to the user puts the coordinates of shots
+ *
+ */
 Game.prototype.shot = function(){
 	this.x = window.prompt('shot in x?');
 	this.y = window.prompt('shot in y?');
 };
-
+/**
+ *
+ *
+ * @returns {Number}
+ */
 Game.prototype.getUserShot = function(){
 	return parseInt(window.prompt('shot? (x)'));
 };
 
-
-
-
-
-
-
+/**
+ *
+ *
+ * @param coord
+ */
 Game.prototype.fireShot = function(coord){
     flag = false;
     for(var i = 0; i < this.players[0].table.shipCount; i++){
@@ -70,6 +77,10 @@ Game.prototype.fireShot = function(coord){
     this.maxNumshots--;
 }
 
+/**
+ *
+ * @return the result of the game
+ */
 Game.prototype.isSunk = function(){
     for(var i = 0; i < this.players[0].table.shipCount; i++){
         if(this.players[0].table.ships[i].hits == this.players[0].table.ships[i].size){

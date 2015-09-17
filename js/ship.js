@@ -21,6 +21,12 @@ Ship.prototype._drawShip = function(size, direction){
 
 	}
 };
+/**
+ * generateInicialPos gererate a ramdom Initial position
+ * @param tableSize
+ * @param direction
+ * @private
+ */
 
 Ship.prototype._generateInicialPos= function(tableSize, direction){
 	if(direction==="Vertical"){
@@ -35,13 +41,3 @@ Ship.prototype._generateInicialPos= function(tableSize, direction){
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
