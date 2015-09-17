@@ -69,7 +69,7 @@ Table.prototype.validShipCoordinate = function(coord){
                 }
             }
         }
-        console.log('-');
+        //console.log('-');
         return true;
     }
     return false;
@@ -78,7 +78,6 @@ Table.prototype.validShipCoordinate = function(coord){
 Table.prototype._randomShipLocation = function(shipIndex){
 
     var index = 0;
-    //var directions = ["Vertical","Horizontal"];
     var shipSize = this.ships[shipIndex].size;
 
     while(index < shipSize){
@@ -127,6 +126,6 @@ Table.prototype.validShotCoordinate =  function(coord){
 
 Table.prototype.displayCoordinate = function(coordinate){
     for (var i = 0; i < coordinate.length; i++) {
-        console.log(coordinate[i]);
+        //console.log(coordinate[i]);
     };
 };
