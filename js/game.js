@@ -1,7 +1,6 @@
 var Game = function(name) {
 	this.name = name;
 	this.score = 0;
-	//TODO Numbers of shots should be retrieved  from a constant
 	this.maxNumshots = 10;
 	this.gameOver = false;
 	this.players = [];
@@ -23,7 +22,6 @@ Game.prototype.start = function(){
 };
 
 Game.prototype.createPlayers = function(){
-	//TODO: Number of shots should be retrieved from a constant
 	var numPlayers = 1;
 	for(var i = 0; i< numPlayers; i++){
 		var player = new Player('Player' + i);
