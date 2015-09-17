@@ -54,25 +54,28 @@ Game.prototype.getUserShot = function(){
  * @param coord
  */
 Game.prototype.fireShot = function(coord){
-    flag = false;
+    //flag = false;
     for(var i = 0; i < this.players[0].table.shipCount; i++){
         for(x = 0; x < this.players[0].table.ships[i].coordinates.length; x++){
             if( this.players[0].table.ships[i].coordinates[x][0] == coord[0] && 
             	this.players[0].table.ships[i].coordinates[x][1] == coord[1]){
                 this.players[0].table.board[coord[0]][coord[1]] = 2;
                 this.players[0].table.ships[i].hits++;
-                flag = true;
-                this.players[0].table.board[coord[0]][coord[1]] = 'x';
+                //flag = true;
+                this.players[0].table.board[coord[0]][coord[1]] = 'X';
+                //console.log(this.players[0].table.board);
                 break;
             } else {
             	this.players[0].table.board[coord[0]][coord[1]] = '-';
+                //console.log(this.players[0].table.board);
             	break;
             }
         }
     }
-    if(!flag){
-        this.players[0].table.board[coord[0]][coord[1]] = 1;
-    }
+/*    if(!flag){
+        this.players[0].table.board[coord[0]][coord[1]] = 'x';
+    }*/
+    this.displayBoard();
     this.isSunk();
     this.maxNumshots--;
 }
@@ -95,3 +98,9 @@ Game.prototype.isSunk = function(){
     	alert('Game Over! you lose');
     }
 }
+
+Game.prototype.displayBoard =  function(){
+    for(var i = 0 ; i < this.players[0].table.board.length ; i ++){
+        console.log(this.players[0].table.board[i]);
+    }
+};

@@ -78,7 +78,7 @@ Table.prototype.validShipCoordinate = function(coord){
             for(var x = 0; x < this.ships[i].coordinates.length; x++){
                 if(this.ships[i].coordinates[x][0] == coord[0] && 
                     this.ships[i].coordinates[x][1] == coord[1]){
-                    console.log('crash');
+                   // console.log('crash');
                     return false;
                 }
             }
