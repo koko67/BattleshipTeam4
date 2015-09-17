@@ -1,3 +1,4 @@
+
 var Ship = function(){
 	//this.id = id;
 	this.size;
