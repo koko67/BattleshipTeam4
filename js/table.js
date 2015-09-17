@@ -83,7 +83,6 @@ Table.prototype.validShipCoordinate = function(coord){
                 }
             }
         }
-        console.log('-');
         return true;
     }
     return false;
@@ -125,7 +124,7 @@ Table.prototype._randomShipLocation = function(shipIndex){
     }
     //this.ships[shipIndex].direction = direction;
     this.ships[shipIndex].coordinates = coordinates;
-    this.displayCoordinate(coordinates);
+    //this.displayCoordinate(coordinates);
 }
 
 /**

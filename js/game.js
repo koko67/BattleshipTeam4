@@ -54,32 +54,26 @@ Game.prototype.getUserShot = function(){
  * @param coord
  */
 Game.prototype.fireShot = function(coord){
-    //flag = false;
+    flag = false;
     for(var i = 0; i < this.players[0].table.shipCount; i++){
         for(x = 0; x < this.players[0].table.ships[i].coordinates.length; x++){
-            if( this.players[0].table.ships[i].coordinates[x][0] == coord[0] && 
-            	this.players[0].table.ships[i].coordinates[x][1] == coord[1]){
-                this.players[0].table.board[coord[0]][coord[1]] = 2;
+            if( this.players[0].table.ships[i].coordinates[x][0] == coord[0] &&
+                this.players[0].table.ships[i].coordinates[x][1] == coord[1]){
                 this.players[0].table.ships[i].hits++;
-                //flag = true;
+                flag = true;
                 this.players[0].table.board[coord[0]][coord[1]] = 'X';
-                //console.log(this.players[0].table.board);
-                break;
             } else {
-            	this.players[0].table.board[coord[0]][coord[1]] = '-';
-                //console.log(this.players[0].table.board);
-            	break;
+                this.players[0].table.board[coord[0]][coord[1]] = 'X';
             }
         }
     }
-/*    if(!flag){
-        this.players[0].table.board[coord[0]][coord[1]] = 'x';
-    }*/
-    this.displayBoard();
+    if(!flag){
+        this.players[0].table.board[coord[0]][coord[1]] = '-';
+    }
     this.isSunk();
+    this.displayBoard();
     this.maxNumshots--;
 }
-
 /**
  *
  * @return the result of the game
